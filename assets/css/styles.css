@@ -407,7 +407,7 @@ section {
 
 /* ---------- Hero ---------- */
 .hero {
-  padding-block: clamp(3rem, 8vw, 6rem) clamp(3rem, 6vw, 5rem);
+  padding-block: clamp(2rem, 4vw, 3.5rem) clamp(3rem, 6vw, 5rem);
 }
 .hero-grid {
   display: grid;
@@ -712,10 +712,23 @@ section {
 .work-details p { margin-top: 0.8rem; color: var(--ink-soft); font-size: 0.92rem; }
 
 /* ---------- Skills ---------- */
+/* Explicit column counts (not auto-fit) because there are exactly 5 skill
+   cards: auto-fit's column count depends on viewport width and, at some
+   widths, splits 5 items 2+2+1 or 4+1 leaving one card orphaned in its own
+   row. Forcing 2-then-3 columns and spanning the odd one out avoids that
+   at every width instead of only the one width it was last tuned for. */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
+}
+@media (min-width: 640px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .skills-grid > :last-child { grid-column: 1 / -1; }
+}
+@media (min-width: 980px) {
+  .skills-grid { grid-template-columns: repeat(3, 1fr); }
+  .skills-grid > :last-child { grid-column: auto; }
 }
 .skill-card {
   background: var(--bg-raised);
