@@ -111,6 +111,33 @@
     items.forEach(function (el) { observer.observe(el); });
   }
 
+  function initScrollProgress() {
+    var bar = document.getElementById("scroll-progress-bar");
+    if (!bar) return;
+    var ticking = false;
+
+    function update() {
+      var doc = document.documentElement;
+      var scrollable = doc.scrollHeight - doc.clientHeight;
+      var pct = scrollable > 0 ? (doc.scrollTop / scrollable) * 100 : 0;
+      bar.style.width = pct + "%";
+      ticking = false;
+    }
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!ticking) {
+          requestAnimationFrame(update);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
+    window.addEventListener("resize", update);
+    update();
+  }
+
   function initYear() {
     var el = document.getElementById("year");
     if (el) el.textContent = String(new Date().getFullYear());
@@ -120,6 +147,7 @@
     initTheme();
     initMobileNav();
     initScrollSpy();
+    initScrollProgress();
     initReveal();
     initYear();
   });

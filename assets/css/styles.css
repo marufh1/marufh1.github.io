@@ -77,7 +77,13 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(1100px 620px at 12% -12%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 65%),
+    radial-gradient(900px 560px at 108% 4%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 60%),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--ink) 4%, transparent) 0px, transparent 1px 48px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink) 4%, transparent) 0px, transparent 1px 48px);
+  background-repeat: no-repeat, no-repeat, repeat, repeat;
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 16px;
@@ -126,13 +132,53 @@ button { font: inherit; }
 }
 .skip-link:focus { top: 1rem; }
 
+/* Reveal-on-scroll base state lives early in the cascade so later,
+   equal-specificity component :hover rules (e.g. .work-card:hover)
+   win once an element has already settled into .is-visible. */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
 .container {
   max-width: var(--max-width);
   margin-inline: auto;
   padding-inline: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 420px) {
+  .container { padding-inline: 1.1rem; }
 }
 
-section { padding-block: clamp(3.5rem, 7vw, 6rem); }
+section {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+.section-alt { background: color-mix(in srgb, var(--bg-sunken) 92%, transparent); }
+
+/* Oversized "echo" numeral in each numbered section — mirrors the 01–05
+   index used in the nav so the whole page reads as one numbered system. */
+.section-echo {
+  position: absolute;
+  top: -0.12em;
+  right: clamp(-0.5rem, 3vw, 2.5rem);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: clamp(6rem, 18vw, 13rem);
+  line-height: 1;
+  color: var(--ink);
+  opacity: 0.035;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
 
 .eyebrow {
   font-family: var(--font-mono);
@@ -197,7 +243,6 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid var(--border);
 }
 /* Blur lives on a pseudo-element (not on .site-header itself) so the header
    never becomes a containing block for its position:fixed mobile-nav child
@@ -248,6 +293,9 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
   gap: 2rem;
 }
 .nav-links a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
   text-decoration: none;
   color: var(--ink-soft);
   font-size: 0.95rem;
@@ -256,6 +304,14 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
   padding-block: 0.3rem;
 }
 .nav-links a:hover, .nav-links a.is-active { color: var(--ink); }
+.nav-index {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  opacity: 0.55;
+  transition: opacity 0.15s ease;
+}
+.nav-links a:hover .nav-index, .nav-links a.is-active .nav-index { opacity: 1; }
 .nav-links a.is-active::after {
   content: "";
   position: absolute;
@@ -263,6 +319,23 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
   height: 2px;
   background: var(--accent);
   border-radius: 2px;
+}
+
+/* Scroll-progress hairline — replaces the old static header border;
+   fills left-to-right with scroll position instead of just sitting there. */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--border);
+}
+.scroll-progress span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
 }
 
 .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
@@ -351,6 +424,14 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
   margin-top: 1rem;
 }
 .hero-accent { color: var(--accent); }
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .hero-accent {
+    background: linear-gradient(120deg, var(--accent), color-mix(in srgb, var(--accent) 45%, #7dd3fc));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
 .hero-lede {
   margin-top: 1.3rem;
   font-size: 1.1rem;
@@ -573,6 +654,12 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
   flex-direction: column;
   gap: 1rem;
   box-shadow: var(--shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.work-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow), 0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent);
 }
 .work-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
 .work-card h3 { font-size: 1.15rem; }
@@ -635,6 +722,11 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.5rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.skill-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
 }
 .skill-card h3 {
   font-size: 0.95rem;
@@ -732,13 +824,3 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
 .footer-inner a:hover { color: var(--accent); }
 .footer-links { display: flex; gap: 1.25rem; }
 
-/* ---------- Reveal on scroll ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; }
-}
