@@ -1,0 +1,13 @@
+{
+  "name": "Maruf Hossain — Full-Stack Software Engineer",
+  "short_name": "Maruf Hossain",
+  "description": "Full-stack software engineer portfolio — ASP.NET Core, C#, SQL Server, React.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0f16",
+  "theme_color": "#0a0f16",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ]
+}

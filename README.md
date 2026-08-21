@@ -1,23 +1,96 @@
-<h1 align="center">Hi 👋, I'm Maruf Hossain</h1>
-<h3 align="center">A passionate Software Engineer from Bangladesh</h3>
+# marufh1.github.io
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=marufh1&label=Profile%20views&color=0e75b6&style=flat" alt="marufh1" /> </p>
+Personal portfolio for **Maruf Hossain** — Full-Stack Software Engineer (ASP.NET Core, C#, SQL Server, React).
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=marufh1" alt="marufh1" /></a> </p>
+Live at: https://marufh1.github.io/
 
-- 💬 Ask me about **react, node js, asp.net**
+## Overview
 
-- 📫 How to reach me **maruf.mhb@gmail.com**
+A hand-built, dependency-free static site: semantic HTML5, one CSS file (custom properties for
+theming, no framework), and a small vanilla-JS file for the theme toggle, mobile nav, scroll-spy,
+and scroll-reveal animation. No build step, no bundler, no backend — it's served as-is by GitHub
+Pages.
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://linkedin.com/in/maruf-h" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="maruf-h" height="30" width="40" /></a>
-<a href="https://fb.com/maruf.mhb" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="maruf.mhb" height="30" width="40" /></a>
-</p>
+All content (roles, dates, education, projects, skills) is sourced directly from Maruf's CV. Nothing
+about clients, metrics, or technologies is invented — see the "Content sourcing" note at the bottom.
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cs/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://dotnet.microsoft.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt="dotnet" width="40" height="40"/> </a> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="noreferrer"> <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> </p>
+## Project structure
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mh-fci&show_icons=true&locale=en&layout=compact" alt="mh-fci" /></p>
+```
+index.html                    Single-page site (all sections)
+404.html                      Custom not-found page
+assets/
+  css/styles.css              Design system + layout (light/dark theme via CSS custom properties)
+  js/main.js                  Theme toggle, mobile nav, scroll-spy, reveal-on-scroll, footer year
+  img/maruf-hossain.png       Portrait used in the About section
+  resume/Maruf-Hossain-Resume.pdf   Downloadable CV (linked from the nav and Contact section)
+favicon.svg                   "MH" monogram favicon
+site.webmanifest              PWA manifest (name, icons, theme color)
+robots.txt / sitemap.xml      SEO basics
+.nojekyll                     Tells GitHub Pages to serve files as-is (skip Jekyll processing)
+google79f367f2740c7176.html   Google Search Console site-verification file — do not remove
+```
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=mh-fci&show_icons=true&locale=en" alt="mh-fci" /></p>
+## Running locally
+
+No install, no build. Any static file server works:
+
+```bash
+npx serve .
+# or
+python -m http.server 8000
+```
+
+Then open the printed local URL in a browser.
+
+## Deployment (GitHub Pages)
+
+This repo **is** `marufh1.github.io`, so GitHub Pages serves the `main`/`master` branch root
+directly — there is nothing to build or publish separately. Push to the default branch and the
+live site updates automatically within a minute or two.
+
+Settings → Pages should have **Source: Deploy from a branch**, branch `master`, folder `/ (root)`.
+
+## Updating content later
+
+Everything lives in `index.html`, organized by `<section id="...">`:
+
+| Section | id | What to edit |
+|---|---|---|
+| Hero | `#top` | Headline, supporting line, "Currently focused on" panel |
+| About | `#about` | Bio paragraphs, "How I work" list |
+| Experience | `#experience` | One `<article class="timeline-item">` per role |
+| Selected Work | `#work` | One `<article class="work-card">` per case study |
+| Skills | `#skills` | One `<div class="skill-card">` per capability group |
+| Education | `#education` | One `<div class="edu-item">` per degree |
+| Contact | `#contact` | One `<a class="contact-card">` per channel |
+
+To update the résumé PDF: replace `assets/resume/Maruf-Hossain-Resume.pdf` with the new file
+(keep the same filename so existing links keep working), and update the CV facts reflected in
+Experience/Education/Skills/JSON-LD to match.
+
+Structured data (JSON-LD `Person` schema) lives in a `<script type="application/ld+json">` block
+in `<head>` — keep it in sync with the visible contact/experience info if either changes.
+
+The favicon and OG/social preview image are generated from `assets/img/maruf-hossain.png` and
+`favicon.svg` — replace those files (same names) to change them without touching HTML.
+
+## Design system
+
+- **Typography:** Space Grotesk (headings), Inter (body), IBM Plex Mono (labels/eyebrows) — all
+  loaded from Google Fonts.
+- **Theme:** dark-first, with a light theme and a "system" option, toggled via a `data-theme`
+  attribute on `<html>` and persisted in `localStorage`. Colors are defined once as CSS custom
+  properties in `assets/css/styles.css` and overridden per theme.
+- **Motion:** section reveals and the hero's SVG system diagram are the only animations, and both
+  respect `prefers-reduced-motion`.
+- **Icons:** a small hand-drawn SVG sprite (`<symbol>` defs at the top of `index.html`) — no icon
+  font, no external icon library.
+
+## Content sourcing
+
+Every fact on the site (employers, dates, degrees, technologies, project descriptions) is drawn
+directly from Maruf's CV (`assets/resume/Maruf-Hossain-Resume.pdf`). No client names, metrics,
+certifications, or technologies beyond what the CV states are included. Where the CV didn't
+support a claim (e.g. numeric outcomes, live project links, testimonials), it was left out rather
+than approximated.
