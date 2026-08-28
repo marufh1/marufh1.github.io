@@ -1,0 +1,288 @@
+/* ============================================================
+   Maruf Hossain — Résumé page
+   Screen: a single "document" card on the site's grid background.
+   Print:  a clean, ATS-friendly black-on-white 1–2 page CV.
+   Depends on assets/css/styles.css for tokens, reset, and fonts.
+   ============================================================ */
+
+.resume-shell {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: clamp(1.25rem, 4vw, 2.5rem) 1.5rem clamp(3rem, 8vw, 5rem);
+  position: relative;
+  z-index: 1;
+}
+
+/* Neutralise the global `section` padding/overflow for document sections. */
+.resume-section {
+  padding-block: 0;
+  overflow: visible;
+  margin-top: 1.9rem;
+}
+
+/* ---------- Top bar (screen only) ---------- */
+.resume-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.resume-bar .back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-decoration: none;
+}
+.resume-bar .back svg { width: 15px; height: 15px; }
+.resume-bar .back:hover { color: var(--accent); }
+.resume-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.resume-actions .btn { padding: 0.6rem 1.1rem; font-size: 0.88rem; }
+
+/* ---------- The document ---------- */
+.resume-doc {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(1.75rem, 5vw, 3.25rem);
+}
+
+.doc-head {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+.doc-head h1 {
+  font-family: var(--font-head);
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  letter-spacing: -0.02em;
+}
+.doc-role {
+  margin-top: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+}
+.doc-status {
+  margin-top: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.doc-status .live-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #22c55e;
+  flex: none;
+}
+.doc-contact {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+.doc-contact a { color: var(--ink-soft); text-decoration: none; }
+.doc-contact a:hover { color: var(--accent); }
+.doc-contact li { display: flex; align-items: center; gap: 0.85rem; }
+.doc-contact li:not(:last-child)::after {
+  content: "";
+  width: 3px; height: 3px; border-radius: 50%;
+  background: var(--border-strong);
+}
+
+.resume-section > h2 {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.05rem;
+}
+.resume-section .lede {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  max-width: 68ch;
+}
+
+/* ---------- Experience ---------- */
+.job { margin-bottom: 1.5rem; }
+.job:last-child { margin-bottom: 0; }
+.job-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.7rem;
+}
+.job-head h3 { font-family: var(--font-head); font-size: 1.05rem; }
+.job-head .at { color: var(--accent); font-weight: 600; font-size: 0.97rem; }
+.job-head .period {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+.job .place { margin-top: 0.15rem; font-size: 0.83rem; color: var(--ink-faint); }
+.job ul { margin-top: 0.65rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.job ul li {
+  position: relative;
+  padding-left: 1.05rem;
+  font-size: 0.93rem;
+  color: var(--ink-soft);
+}
+.job ul li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.55em;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--border-strong);
+}
+.job .stack {
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.77rem;
+  color: var(--ink-faint);
+}
+.job .stack b { color: var(--ink-soft); font-weight: 500; }
+
+/* ---------- Projects ---------- */
+.proj-list { display: flex; flex-direction: column; gap: 0.6rem; }
+.proj-list li {
+  position: relative;
+  padding-left: 1.05rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.proj-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.55em;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent);
+}
+.proj-list li b { color: var(--ink); font-weight: 600; }
+
+/* ---------- Skills ---------- */
+.skill-defs { display: grid; gap: 0.7rem 1.5rem; grid-template-columns: max-content 1fr; font-size: 0.9rem; }
+.skill-defs dt { font-weight: 600; color: var(--ink); }
+.skill-defs dd { margin: 0; color: var(--ink-soft); }
+@media (max-width: 620px) {
+  .skill-defs { grid-template-columns: 1fr; gap: 0.15rem; }
+  .skill-defs dd { margin-bottom: 0.65rem; }
+}
+
+/* ---------- Education ---------- */
+.edu-list2 { display: flex; flex-direction: column; gap: 0.9rem; }
+.edu-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  flex-wrap: wrap;
+}
+.edu-row h3 { font-family: var(--font-head); font-size: 0.98rem; }
+.edu-row .org { margin-top: 0.15rem; font-size: 0.87rem; color: var(--ink-soft); }
+.edu-row .yr {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+/* ---------- Print: clean CV ---------- */
+@media print {
+  @page { margin: 14mm; }
+
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  body {
+    background-image: none !important;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  .site-header,
+  .site-footer,
+  .resume-bar,
+  .skip-link { display: none !important; }
+
+  .resume-shell { max-width: none; padding: 0; }
+  .resume-doc {
+    background: #fff !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+
+  a { color: #000 !important; text-decoration: none !important; }
+
+  .doc-head h1,
+  .doc-role,
+  .doc-status,
+  .doc-contact,
+  .doc-contact a,
+  .resume-section > h2,
+  .resume-section .lede,
+  .job-head h3,
+  .job-head .at,
+  .job-head .period,
+  .job .place,
+  .job ul li,
+  .job .stack,
+  .job .stack b,
+  .proj-list li,
+  .proj-list li b,
+  .skill-defs dt,
+  .skill-defs dd,
+  .edu-row h3,
+  .edu-row .org,
+  .edu-row .yr { color: #000 !important; }
+
+  .doc-head,
+  .resume-section > h2 { border-color: #999 !important; }
+
+  .job ul li::before,
+  .proj-list li::before,
+  .doc-contact li:not(:last-child)::after { background: #000 !important; }
+
+  .doc-status .live-dot { display: none; }
+
+  /* Fragmentation: never put `break-inside: avoid` on anything taller than a
+     page — Chrome mis-fragments nested flex children when it can't honour it.
+     Sections and jobs flow freely; only the short education rows stay whole,
+     and a heading never sits alone at the foot of a page. */
+  .resume-section { margin-top: 11pt; }
+  .edu-row { break-inside: avoid; }
+  .doc-head,
+  .resume-section > h2 { break-after: avoid; }
+
+  /* Plain block list flow prints more predictably than flex columns. */
+  .job { margin-bottom: 8pt; }
+  .job ul { display: block; margin-top: 4pt; }
+  .job ul li { margin-bottom: 2.5pt; }
+  .job .stack { margin-top: 4pt; }
+
+  /* Tighten spacing so the CV lands cleanly in two pages. */
+  .doc-head { padding-bottom: 8pt; margin-bottom: 2pt; }
+  .doc-contact { margin-top: 7pt; }
+  .resume-section > h2 { margin-bottom: 6pt; padding-bottom: 3pt; }
+  .resume-section .lede { font-size: 9.5pt; }
+  .proj-list { gap: 3pt; }
+  .skill-defs { gap: 5pt 1.5rem; }
+  .edu-list2 { gap: 6pt; }
+}

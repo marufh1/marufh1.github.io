@@ -18,12 +18,14 @@ about clients, metrics, or technologies is invented — see the "Content sourcin
 
 ```
 index.html                    Single-page site (all sections)
+resume/index.html             HTML résumé — screen document + print-perfect CV (Cmd/Ctrl+P → Save as PDF)
 404.html                      Custom not-found page
 assets/
   css/styles.css              Design system + layout (light/dark theme via CSS custom properties)
+  css/resume.css              Résumé-page document layout + print stylesheet
   js/main.js                  Theme toggle, mobile nav, scroll-spy, reveal-on-scroll, footer year
   img/maruf-hossain.png       Portrait used in the About section
-  resume/Maruf-Hossain-Resume.pdf   Downloadable CV (linked from the nav and Contact section)
+  resume/Maruf-Hossain-Resume.pdf   Downloadable CV (linked from the résumé page)
 favicon.svg                   "MH" monogram favicon
 site.webmanifest              PWA manifest (name, icons, theme color)
 robots.txt / sitemap.xml      SEO basics
@@ -68,6 +70,11 @@ Everything lives in `index.html`, organized by `<section id="...">`:
 To update the résumé PDF: replace `assets/resume/Maruf-Hossain-Resume.pdf` with the new file
 (keep the same filename so existing links keep working), and update the CV facts reflected in
 Experience/Education/Skills/JSON-LD to match.
+
+The HTML résumé at `resume/index.html` must be kept in sync with the PDF — it carries the same
+roles, bullets, projects, skills, and education, plus its own JSON-LD (`ProfilePage` → `Person`).
+The nav, hero, Contact card, and footer all link to `resume/` (which offers the PDF download);
+recruiters preview the résumé in-page rather than being forced into a download.
 
 Structured data (JSON-LD `Person` schema) lives in a `<script type="application/ld+json">` block
 in `<head>` — keep it in sync with the visible contact/experience info if either changes.
