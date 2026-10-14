@@ -64,6 +64,45 @@
   }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Independent products by Maruf Hossain",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Jogan",
+        "url": "https://jogan-web.vercel.app/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Android, iOS (PWA)",
+        "description": "Billing, collections and operations SaaS for internet service providers in Bangladesh.",
+        "image": "https://marufh1.github.io/assets/img/projects/jogan-dashboard-1440.webp",
+        "author": { "@id": "https://marufh1.github.io/#person" }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "WebApplication",
+        "name": "KhujeNao",
+        "alternateName": "Ghorly",
+        "url": "https://ghorly-web.vercel.app/",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Web, Android, iOS (PWA)",
+        "inLanguage": ["bn", "en"],
+        "description": "Bangla-first home-rental marketplace with fresh, verified listings, starting in Feni, Bangladesh.",
+        "image": "https://marufh1.github.io/assets/img/projects/khujenao-explore-1440.webp",
+        "author": { "@id": "https://marufh1.github.io/#person" }
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -100,8 +139,9 @@
       <a href="#about"><span class="nav-index" aria-hidden="true">01</span><span>About</span></a>
       <a href="#experience"><span class="nav-index" aria-hidden="true">02</span><span>Experience</span></a>
       <a href="#work"><span class="nav-index" aria-hidden="true">03</span><span>Selected Work</span></a>
-      <a href="#skills"><span class="nav-index" aria-hidden="true">04</span><span>Skills</span></a>
-      <a href="#contact"><span class="nav-index" aria-hidden="true">05</span><span>Contact</span></a>
+      <a href="#products"><span class="nav-index" aria-hidden="true">04</span><span>Products</span></a>
+      <a href="#skills"><span class="nav-index" aria-hidden="true">05</span><span>Skills</span></a>
+      <a href="#contact"><span class="nav-index" aria-hidden="true">06</span><span>Contact</span></a>
     </nav>
 
     <div class="nav-actions">
@@ -151,6 +191,7 @@
         <ul class="focus-list">
           <li><span class="focus-dot"></span><span><strong>Fintech platforms</strong> — transaction handling, mobile-money integrations, and reporting at Grapes Technology.</span></li>
           <li><span class="focus-dot"></span><span><strong>Full-stack products</strong> — car rental, food ordering, and real-time features in React, Node.js, and MongoDB at Siara Solutions.</span></li>
+          <li><span class="focus-dot"></span><span><strong>Independent products</strong> — <a href="#products">Jogan</a>, an ISP billing SaaS, and <a href="#products">KhujeNao</a>, a rental marketplace, built and shipped end to end.</span></li>
           <li><span class="focus-dot"></span><span><strong>Query &amp; index optimization</strong> — cutting execution time on critical SQL Server reports.</span></li>
         </ul>
 
@@ -419,9 +460,151 @@
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills">
+  <!-- Independent Products -->
+  <section id="products">
     <span class="section-echo" aria-hidden="true">04</span>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Independent Products</span>
+        <h2>Products I design, build and ship</h2>
+        <p>Outside my day job I build full products end to end — from data model and API to an installable mobile-first app — for real problems in Bangladesh.</p>
+      </div>
+
+      <div class="product-list">
+        <article class="product reveal" aria-labelledby="product-jogan">
+          <div class="product-media">
+            <div class="product-stage">
+            <figure class="device-browser">
+              <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><span class="browser-url">jogan-web.vercel.app</span></div>
+              <img src="assets/img/projects/jogan-dashboard-800.webp"
+                   srcset="assets/img/projects/jogan-dashboard-800.webp 800w, assets/img/projects/jogan-dashboard-1440.webp 1440w"
+                   sizes="(max-width: 900px) 100vw, 600px"
+                   width="1440" height="900" loading="lazy" decoding="async"
+                   alt="Jogan owner dashboard in dark mode: collected this month, outstanding bills, active subscribers, a needs-attention list of overdue customers and a six-month billed-versus-paid chart." />
+            </figure>
+            <figure class="device-phone">
+              <img src="assets/img/projects/jogan-mobile-360.webp" width="360" height="780" loading="lazy" decoding="async"
+                   alt="Jogan on a phone: the same dashboard with a bottom navigation bar and a central Collect button." />
+            </figure>
+            </div>
+            <figure class="product-extra">
+              <img src="assets/img/projects/jogan-branding-800.webp"
+                   srcset="assets/img/projects/jogan-branding-800.webp 800w, assets/img/projects/jogan-branding-1440.webp 1440w"
+                   sizes="(max-width: 900px) 100vw, 560px"
+                   width="1440" height="854" loading="lazy" decoding="async"
+                   alt="Jogan branding settings: six Bangladesh-inspired theme presets, a custom brand colour with a WCAG AA readability check, and a live phone preview." />
+              <figcaption>White-label branding — each ISP picks a preset or its own logo colour, kept readable automatically and previewed on a phone first.</figcaption>
+            </figure>
+          </div>
+
+          <div class="product-body">
+            <div class="product-top">
+              <h3 id="product-jogan">Jogan</h3>
+              <span class="work-tag">SaaS · ISP billing</span>
+              <span class="product-status"><span class="live-dot" aria-hidden="true"></span>Live</span>
+            </div>
+            <p class="product-pitch">Billing, collections and operations for internet service providers in Bangladesh — one multi-tenant platform where every taka is traceable.</p>
+
+            <div class="work-field">
+              <strong>What it does</strong>
+              <ul class="product-points">
+                <li>Subscribers, packages and one-tap monthly billing with no double bills; cash, bKash, Nagad and Rocket payments with receipts and reasoned reversals.</li>
+                <li>A collector app that works offline — daily routes, collecting without signal, and cash handovers with counts.</li>
+                <li>Complaint tickets with deadlines, field jobs, stock movement and MikroTik router checks.</li>
+                <li>Coverage map, owner dashboard, audit log, and bill links customers open straight from WhatsApp or SMS.</li>
+              </ul>
+            </div>
+
+            <div class="work-field">
+              <strong>Engineering highlights</strong>
+              <ul class="product-points">
+                <li>Multi-tenant SaaS with role-based access for owners and collectors, plus a separate platform admin console.</li>
+                <li>Installable PWA with Workbox offline caching and a mobile-first layout with bottom navigation.</li>
+                <li>Per-ISP white-label theming that checks brand colours against WCAG AA contrast automatically.</li>
+                <li>Bangla and English, light and dark themes, and a sample-data practice mode for onboarding.</li>
+              </ul>
+            </div>
+
+            <div class="tech-row">
+              <span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Vite</span><span class="tech-tag">TanStack Query</span><span class="tech-tag">NestJS</span><span class="tech-tag">PWA / Workbox</span><span class="tech-tag">Mapbox</span><span class="tech-tag">Vercel</span>
+            </div>
+
+            <div class="product-actions">
+              <a class="btn btn-primary" href="https://jogan-web.vercel.app/pricing" target="_blank" rel="noopener noreferrer">Visit live site<span aria-hidden="true">↗</span><span class="visually-hidden"> (Jogan, opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product reveal" aria-labelledby="product-khujenao">
+          <div class="product-media">
+            <div class="product-stage">
+            <figure class="device-browser">
+              <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><span class="browser-url">ghorly-web.vercel.app</span></div>
+              <img src="assets/img/projects/khujenao-explore-800.webp"
+                   srcset="assets/img/projects/khujenao-explore-800.webp 800w, assets/img/projects/khujenao-explore-1440.webp 1440w"
+                   sizes="(max-width: 900px) 100vw, 600px"
+                   width="1440" height="900" loading="lazy" decoding="async"
+                   alt="KhujeNao explore page: an interactive district map of Bangladesh with Feni and Cumilla highlighted, next to a searchable district list showing available homes." />
+            </figure>
+            <figure class="device-phone">
+              <img src="assets/img/projects/khujenao-mobile-360.webp" width="360" height="779" loading="lazy" decoding="async"
+                   alt="KhujeNao home screen on a phone in Bangla, with a search box and quick filters for family, bachelor and bedroom count." />
+            </figure>
+            </div>
+            <figure class="product-extra">
+              <img src="assets/img/projects/khujenao-home-800.webp"
+                   srcset="assets/img/projects/khujenao-home-800.webp 800w, assets/img/projects/khujenao-home-1440.webp 1440w"
+                   sizes="(max-width: 900px) 100vw, 560px"
+                   width="1440" height="900" loading="lazy" decoding="async"
+                   alt="KhujeNao home page on desktop: Bangla headline asking if you are looking for a home, a search panel with quick filters, and a panel explaining fresh listings, clear posters and protected phone numbers." />
+              <figcaption>Bangla first, with the English words people actually use (“Rent”, “confirm”, “Bedroom”) — and a full English switch in the header.</figcaption>
+            </figure>
+          </div>
+
+          <div class="product-body">
+            <div class="product-top">
+              <h3 id="product-khujenao">KhujeNao <span class="product-alias">(Ghorly)</span></h3>
+              <span class="work-tag">Marketplace · Rentals</span>
+              <span class="product-status"><span class="live-dot" aria-hidden="true"></span>Live</span>
+            </div>
+            <p class="product-pitch">A Bangla-first home-rental marketplace starting in Feni — every listing shows when it was last confirmed and who posted it, so renters make fewer wasted calls.</p>
+
+            <div class="work-field">
+              <strong>What it does</strong>
+              <ul class="product-points">
+                <li>Search homes by area, tenant type, bedrooms, rent and availability, in list or map view.</li>
+                <li>Listing freshness: last-confirmed dates, automatic expiry of stale posts, and clear Owner, Caretaker or Agent labels.</li>
+                <li>Free listings for landlords with a generated share card and QR code; saved homes and “notify me” requests for renters.</li>
+                <li>Local electrician and plumber booking, emergency numbers, a meter-code tool and an interactive district map.</li>
+              </ul>
+            </div>
+
+            <div class="work-field">
+              <strong>Engineering highlights</strong>
+              <ul class="product-points">
+                <li>Next.js 16 App Router with React Server Components, built with Turbopack.</li>
+                <li>Versioned REST API (<code>/api/v1</code>) with a consistent error envelope, request IDs and a versioned health check.</li>
+                <li>Strict nonce-based Content Security Policy; landlord phone numbers are only shown after Google sign-in to cut spam.</li>
+                <li>Installable PWA with self-hosted Bangla variable fonts; photos served via Cloudinary and Vercel Blob.</li>
+              </ul>
+            </div>
+
+            <div class="tech-row">
+              <span class="tech-tag">Next.js</span><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">REST API</span><span class="tech-tag">Mapbox</span><span class="tech-tag">Cloudinary</span><span class="tech-tag">Google Sign-In</span><span class="tech-tag">PWA</span>
+            </div>
+
+            <div class="product-actions">
+              <a class="btn btn-primary" href="https://ghorly-web.vercel.app/" target="_blank" rel="noopener noreferrer">Visit live site<span aria-hidden="true">↗</span><span class="visually-hidden"> (KhujeNao, opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section-alt">
+    <span class="section-echo" aria-hidden="true">05</span>
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Skills</span>
@@ -500,7 +683,7 @@
 
   <!-- Contact -->
   <section id="contact" class="section-alt">
-    <span class="section-echo" aria-hidden="true">05</span>
+    <span class="section-echo" aria-hidden="true">06</span>
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Contact</span>

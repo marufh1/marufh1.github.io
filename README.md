@@ -25,6 +25,7 @@ assets/
   css/resume.css              Résumé-page document layout + print stylesheet
   js/main.js                  Theme toggle, mobile nav, scroll-spy, reveal-on-scroll, footer year
   img/maruf-hossain.png       Portrait used in the About section
+  img/projects/*.webp         Product screenshots (800w + 1440w desktop, 360w phone)
   resume/Maruf-Hossain-Resume.pdf   Downloadable CV (linked from the résumé page)
 favicon.svg                   "MH" monogram favicon
 site.webmanifest              PWA manifest (name, icons, theme color)
@@ -63,6 +64,7 @@ Everything lives in `index.html`, organized by `<section id="...">`:
 | About | `#about` | Bio paragraphs, "How I work" list |
 | Experience | `#experience` | One `<article class="timeline-item">` per role |
 | Selected Work | `#work` | One `<article class="work-card">` per case study |
+| Independent Products | `#products` | One `<article class="product">` per product (browser + phone mockups, extra screen); also the products JSON-LD in `<head>` |
 | Skills | `#skills` | One `<div class="skill-card">` per capability group |
 | Education | `#education` | One `<div class="edu-item">` per degree |
 | Contact | `#contact` | One `<a class="contact-card">` per channel |
