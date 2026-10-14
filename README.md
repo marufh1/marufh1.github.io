@@ -24,7 +24,7 @@ assets/
   css/styles.css              Design system + layout (light/dark theme via CSS custom properties)
   css/resume.css              Résumé-page document layout + print stylesheet
   js/main.js                  Theme toggle, mobile nav, scroll-spy, reveal-on-scroll, footer year
-  img/maruf-hossain.png       Portrait used in the About section
+  img/maruf-hossain.jpg       Portrait used in the About section
   img/projects/*.webp         Product screenshots (800w + 1440w desktop, 360w phone)
   resume/Maruf-Hossain-Resume.pdf   Downloadable CV (linked from the résumé page)
 favicon.svg                   "MH" monogram favicon
@@ -81,8 +81,8 @@ recruiters preview the résumé in-page rather than being forced into a download
 Structured data (JSON-LD `Person` schema) lives in a `<script type="application/ld+json">` block
 in `<head>` — keep it in sync with the visible contact/experience info if either changes.
 
-The favicon and OG/social preview image are generated from `assets/img/maruf-hossain.png` and
-`favicon.svg` — replace those files (same names) to change them without touching HTML.
+The OG/social preview image is `assets/img/og-card.png` and the favicon is `favicon.svg`; the
+About-section portrait is `assets/img/maruf-hossain.jpg` (512×512 square crop) — replace those files (same names) to change them without touching HTML.
 
 ## Design system
 
