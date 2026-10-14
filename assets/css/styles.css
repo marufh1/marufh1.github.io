@@ -879,29 +879,6 @@ section {
 }
 .product-pitch { font-size: 1.08rem; color: var(--ink-soft); }
 
-.product-stats {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.6rem;
-}
-@media (max-width: 560px) {
-  .product-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-.product-stats li {
-  padding: 0.75rem 0.85rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--bg-raised);
-  border-top: 2px solid var(--brand);
-}
-.product-stats strong {
-  display: block;
-  font-family: var(--font-head);
-  font-size: 1.35rem;
-  line-height: 1.1;
-}
-.product-stats span { display: block; margin-top: 0.2rem; font-size: 0.76rem; line-height: 1.35; color: var(--ink-faint); }
-
 .product-points { display: flex; flex-direction: column; gap: 0.55rem; }
 .product-points li {
   position: relative;
