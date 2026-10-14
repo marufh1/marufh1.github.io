@@ -54,7 +54,7 @@
     { "@type": "CollegeOrUniversity", "name": "Bangladesh University of Business and Technology" },
     { "@type": "CollegeOrUniversity", "name": "Feni Computer Institute" }
   ],
-  "knowsAbout": ["ASP.NET Core", "C#", "SQL Server", "React", "Node.js", "TypeScript", "REST API Design", "Microservices", "PostgreSQL", "MongoDB"],
+  "knowsAbout": ["ASP.NET Core", "C#", "SQL Server", "React", "Next.js", "Node.js", "NestJS", "Fastify", "TypeScript", "Prisma", "REST API Design", "Microservices", "PostgreSQL", "MongoDB"],
   "knowsLanguage": "en",
   "hasOccupation": {
     "@type": "Occupation",
@@ -466,26 +466,26 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Independent Products</span>
-        <h2>Products I design, build and ship</h2>
-        <p>Outside my day job I build full products end to end — from data model and API to an installable mobile-first app — for real problems in Bangladesh.</p>
+        <h2>Two products, built end to end</h2>
+        <p>Outside my day job I design, build and ship complete products for real problems in Bangladesh — typed monorepos with PostgreSQL data models, tested APIs, installable mobile-first apps and CI.</p>
       </div>
 
       <div class="product-list">
-        <article class="product reveal" aria-labelledby="product-jogan">
+        <article class="product product--jogan reveal" aria-labelledby="product-jogan">
           <div class="product-media">
             <div class="product-stage">
-            <figure class="device-browser">
-              <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><span class="browser-url">jogan-web.vercel.app</span></div>
-              <img src="assets/img/projects/jogan-dashboard-800.webp"
-                   srcset="assets/img/projects/jogan-dashboard-800.webp 800w, assets/img/projects/jogan-dashboard-1440.webp 1440w"
-                   sizes="(max-width: 900px) 100vw, 600px"
-                   width="1440" height="900" loading="lazy" decoding="async"
-                   alt="Jogan owner dashboard in dark mode: collected this month, outstanding bills, active subscribers, a needs-attention list of overdue customers and a six-month billed-versus-paid chart." />
-            </figure>
-            <figure class="device-phone">
-              <img src="assets/img/projects/jogan-mobile-360.webp" width="360" height="780" loading="lazy" decoding="async"
-                   alt="Jogan on a phone: the same dashboard with a bottom navigation bar and a central Collect button." />
-            </figure>
+              <figure class="device-browser">
+                <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><span class="browser-url">jogan-web.vercel.app</span></div>
+                <img src="assets/img/projects/jogan-dashboard-800.webp"
+                     srcset="assets/img/projects/jogan-dashboard-800.webp 800w, assets/img/projects/jogan-dashboard-1440.webp 1440w"
+                     sizes="(max-width: 900px) 100vw, 560px"
+                     width="1440" height="900" loading="lazy" decoding="async"
+                     alt="Jogan owner dashboard in dark mode: collected this month, outstanding bills, active subscribers, a needs-attention list of overdue customers and a six-month billed-versus-paid chart." />
+              </figure>
+              <figure class="device-phone">
+                <img src="assets/img/projects/jogan-mobile-360.webp" width="360" height="780" loading="lazy" decoding="async"
+                     alt="Jogan on a phone: the same dashboard with a bottom navigation bar and a central Collect button." />
+              </figure>
             </div>
             <figure class="product-extra">
               <img src="assets/img/projects/jogan-branding-800.webp"
@@ -493,63 +493,80 @@
                    sizes="(max-width: 900px) 100vw, 560px"
                    width="1440" height="854" loading="lazy" decoding="async"
                    alt="Jogan branding settings: six Bangladesh-inspired theme presets, a custom brand colour with a WCAG AA readability check, and a live phone preview." />
-              <figcaption>White-label branding — each ISP picks a preset or its own logo colour, kept readable automatically and previewed on a phone first.</figcaption>
+              <figcaption>Per-ISP branding — six presets or the ISP's own logo colour, run through an OKLCH theme engine that keeps text readable (WCAG AA) and previews it on a phone first.</figcaption>
             </figure>
           </div>
 
           <div class="product-body">
             <div class="product-top">
+              <span class="product-logo" aria-hidden="true">J</span>
               <h3 id="product-jogan">Jogan</h3>
               <span class="work-tag">SaaS · ISP billing</span>
               <span class="product-status"><span class="live-dot" aria-hidden="true"></span>Live</span>
             </div>
-            <p class="product-pitch">Billing, collections and operations for internet service providers in Bangladesh — one multi-tenant platform where every taka is traceable.</p>
+            <p class="product-pitch">Billing, collections and field operations for internet service providers in Bangladesh — a multi-tenant SaaS where every taka is traceable, in Bangla and English.</p>
+
+            <ul class="product-stats" aria-label="Jogan by the numbers">
+              <li><strong>~76k</strong><span>lines of TypeScript</span></li>
+              <li><strong>43</strong><span>database models</span></li>
+              <li><strong>~178</strong><span>API endpoints</span></li>
+              <li><strong>680+</strong><span>automated tests</span></li>
+            </ul>
 
             <div class="work-field">
               <strong>What it does</strong>
               <ul class="product-points">
-                <li>Subscribers, packages and one-tap monthly billing with no double bills; cash, bKash, Nagad and Rocket payments with receipts and reasoned reversals.</li>
-                <li>A collector app that works offline — daily routes, collecting without signal, and cash handovers with counts.</li>
-                <li>Complaint tickets with deadlines, field jobs, stock movement and MikroTik router checks.</li>
-                <li>Coverage map, owner dashboard, audit log, and bill links customers open straight from WhatsApp or SMS.</li>
+                <li>Subscribers, packages and billing runs with proration, discounts and one-off charges; cash, bKash and Nagad payments with receipts, credit and reversals.</li>
+                <li>An offline-capable collector app — assigned routes, a three-tap collect flow and cash hand-overs to the office.</li>
+                <li>Support tickets, field jobs, stock, expenses and profit, coverage maps, SMS reminders and a public bill page for customers.</li>
               </ul>
             </div>
 
             <div class="work-field">
               <strong>Engineering highlights</strong>
               <ul class="product-points">
-                <li>Multi-tenant SaaS with role-based access for owners and collectors, plus a separate platform admin console.</li>
-                <li>Installable PWA with Workbox offline caching and a mobile-first layout with bottom navigation.</li>
-                <li>Per-ISP white-label theming that checks brand colours against WCAG AA contrast automatically.</li>
-                <li>Bangla and English, light and dark themes, and a sample-data practice mode for onboarding.</li>
+                <li><b>Money you can audit:</b> integer poisha, idempotency keys on every payment, fixed lock ordering and reversals instead of deletes — proven by concurrent-payment e2e tests and a ledger integrity checker.</li>
+                <li><b>Tenant isolation in the database:</b> composite foreign keys reject cross-tenant links, and a default-deny guard over ~58 permissions and five roles is checked route by route in tests.</li>
+                <li><b>Offline that's safe:</b> collections are encrypted on the phone (WebCrypto AES-GCM in IndexedDB) and replayed with their idempotency keys when the signal returns.</li>
+                <li><b>Built, not bought:</b> an own MikroTik RouterOS protocol client, a wallet-SMS parser that matches bKash/Nagad payments to customers, and a Postgres job outbox instead of Redis.</li>
               </ul>
-            </div>
-
-            <div class="tech-row">
-              <span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Vite</span><span class="tech-tag">TanStack Query</span><span class="tech-tag">NestJS</span><span class="tech-tag">PWA / Workbox</span><span class="tech-tag">Mapbox</span><span class="tech-tag">Vercel</span>
             </div>
 
             <div class="product-actions">
               <a class="btn btn-primary" href="https://jogan-web.vercel.app/pricing" target="_blank" rel="noopener noreferrer">Visit live site<span aria-hidden="true">↗</span><span class="visually-hidden"> (Jogan, opens in a new tab)</span></a>
             </div>
+
+            <details class="work-details">
+              <summary>Architecture &amp; security</summary>
+              <p>A pnpm monorepo: the React PWA, a NestJS modular-monolith API (31 modules) and a shared TypeScript package for billing maths, permissions, dates and the theme engine, used by both sides. 55 architecture decision records cover choices like Postgres-only queues and server-side sessions.</p>
+              <p>Argon2 passwords, SHA-256-hashed session tokens in <code>__Host-</code> cookies, HMAC double-submit CSRF, TOTP with recovery codes for platform staff, AES-256-GCM encrypted integration secrets, and an audit log written in the same transaction as each change.</p>
+            </details>
           </div>
+
+          <dl class="product-stack" aria-label="Jogan tech stack">
+            <div><dt><svg aria-hidden="true"><use href="#i-window"/></svg>Frontend</dt><dd><span class="tech-tag">React 19</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Vite</span><span class="tech-tag">TanStack Query</span><span class="tech-tag">PWA · Workbox</span><span class="tech-tag">IndexedDB</span><span class="tech-tag">MapLibre GL</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-server"/></svg>Backend</dt><dd><span class="tech-tag">NestJS 11</span><span class="tech-tag">Node.js</span><span class="tech-tag">Zod</span><span class="tech-tag">Argon2</span><span class="tech-tag">TOTP 2FA</span><span class="tech-tag">Session auth + CSRF</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-db"/></svg>Data</dt><dd><span class="tech-tag">PostgreSQL 16</span><span class="tech-tag">Prisma 7</span><span class="tech-tag">SKIP LOCKED queues</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-plug"/></svg>Integrations</dt><dd><span class="tech-tag">MikroTik RouterOS API</span><span class="tech-tag">BD SMS gateways</span><span class="tech-tag">bKash / Nagad matching</span><span class="tech-tag">OpenFreeMap</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-branch"/></svg>Delivery</dt><dd><span class="tech-tag">pnpm monorepo</span><span class="tech-tag">Vitest</span><span class="tech-tag">Supertest</span><span class="tech-tag">Playwright</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">Docker</span><span class="tech-tag">Vercel</span></dd></div>
+          </dl>
         </article>
 
-        <article class="product reveal" aria-labelledby="product-khujenao">
+        <article class="product product--khujenao reveal" aria-labelledby="product-khujenao">
           <div class="product-media">
             <div class="product-stage">
-            <figure class="device-browser">
-              <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><span class="browser-url">ghorly-web.vercel.app</span></div>
-              <img src="assets/img/projects/khujenao-explore-800.webp"
-                   srcset="assets/img/projects/khujenao-explore-800.webp 800w, assets/img/projects/khujenao-explore-1440.webp 1440w"
-                   sizes="(max-width: 900px) 100vw, 600px"
-                   width="1440" height="900" loading="lazy" decoding="async"
-                   alt="KhujeNao explore page: an interactive district map of Bangladesh with Feni and Cumilla highlighted, next to a searchable district list showing available homes." />
-            </figure>
-            <figure class="device-phone">
-              <img src="assets/img/projects/khujenao-mobile-360.webp" width="360" height="779" loading="lazy" decoding="async"
-                   alt="KhujeNao home screen on a phone in Bangla, with a search box and quick filters for family, bachelor and bedroom count." />
-            </figure>
+              <figure class="device-browser">
+                <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span><span class="browser-url">ghorly-web.vercel.app</span></div>
+                <img src="assets/img/projects/khujenao-explore-800.webp"
+                     srcset="assets/img/projects/khujenao-explore-800.webp 800w, assets/img/projects/khujenao-explore-1440.webp 1440w"
+                     sizes="(max-width: 900px) 100vw, 560px"
+                     width="1440" height="900" loading="lazy" decoding="async"
+                     alt="KhujeNao explore page: an interactive district map of Bangladesh with Feni and Cumilla highlighted, next to a searchable district list showing available homes." />
+              </figure>
+              <figure class="device-phone">
+                <img src="assets/img/projects/khujenao-mobile-360.webp" width="360" height="779" loading="lazy" decoding="async"
+                     alt="KhujeNao home screen on a phone in Bangla, with a search box and quick filters for family, bachelor and bedroom count." />
+              </figure>
             </div>
             <figure class="product-extra">
               <img src="assets/img/projects/khujenao-home-800.webp"
@@ -557,46 +574,63 @@
                    sizes="(max-width: 900px) 100vw, 560px"
                    width="1440" height="900" loading="lazy" decoding="async"
                    alt="KhujeNao home page on desktop: Bangla headline asking if you are looking for a home, a search panel with quick filters, and a panel explaining fresh listings, clear posters and protected phone numbers." />
-              <figcaption>Bangla first, with the English words people actually use (“Rent”, “confirm”, “Bedroom”) — and a full English switch in the header.</figcaption>
+              <figcaption>Bangla by default — about 2,300 lines of hand-written Bangla/English copy that keeps the English words people actually use (“Rent”, “confirm”, “Bedroom”).</figcaption>
             </figure>
           </div>
 
           <div class="product-body">
             <div class="product-top">
+              <span class="product-logo" aria-hidden="true">K</span>
               <h3 id="product-khujenao">KhujeNao <span class="product-alias">(Ghorly)</span></h3>
               <span class="work-tag">Marketplace · Rentals</span>
               <span class="product-status"><span class="live-dot" aria-hidden="true"></span>Live</span>
             </div>
-            <p class="product-pitch">A Bangla-first home-rental marketplace starting in Feni — every listing shows when it was last confirmed and who posted it, so renters make fewer wasted calls.</p>
+            <p class="product-pitch">A Bangla-first home-rental marketplace starting in Feni — every listing shows when it was last confirmed and who posted it, so renters waste fewer calls.</p>
+
+            <ul class="product-stats" aria-label="KhujeNao by the numbers">
+              <li><strong>3</strong><span>apps: site, API, admin</span></li>
+              <li><strong>35</strong><span>database models</span></li>
+              <li><strong>~150</strong><span>API endpoints</span></li>
+              <li><strong>330+</strong><span>automated tests</span></li>
+            </ul>
 
             <div class="work-field">
               <strong>What it does</strong>
               <ul class="product-points">
-                <li>Search homes by area, tenant type, bedrooms, rent and availability, in list or map view.</li>
-                <li>Listing freshness: last-confirmed dates, automatic expiry of stale posts, and clear Owner, Caretaker or Agent labels.</li>
-                <li>Free listings for landlords with a generated share card and QR code; saved homes and “notify me” requests for renters.</li>
-                <li>Local electrician and plumber booking, emergency numbers, a meter-code tool and an interactive district map.</li>
+                <li>Search by area, tenant type, bedrooms, rent and move-in date, in list or map view, with saved searches, compare and alerts.</li>
+                <li>Free listings for owners with Bangla share cards and a printable QR “To-Let” sheet; renters post what they need and get matched to new homes.</li>
+                <li>Electrician and plumber booking, a local directory, emergency numbers and a meter-code tool — plus an admin app for moderation and service dispatch.</li>
               </ul>
             </div>
 
             <div class="work-field">
               <strong>Engineering highlights</strong>
               <ul class="product-points">
-                <li>Next.js 16 App Router with React Server Components, built with Turbopack.</li>
-                <li>Versioned REST API (<code>/api/v1</code>) with a consistent error envelope, request IDs and a versioned health check.</li>
-                <li>Strict nonce-based Content Security Policy; landlord phone numbers are only shown after Google sign-in to cut spam.</li>
-                <li>Installable PWA with self-hosted Bangla variable fonts; photos served via Cloudinary and Vercel Blob.</li>
+                <li><b>Listings that stay fresh:</b> owners are reminded at 7 and 14 days and unconfirmed listings expire at 21, driven by an hourly scheduled sweep with de-duplicated reminders.</li>
+                <li><b>Contract-first API:</b> Fastify under <code>/v1</code> with Zod contracts shared by the site, admin and API, a stable error envelope with request IDs, and Postgres-backed rate limiting.</li>
+                <li><b>Modern sign-in, private contacts:</b> password, email code, Google One Tap or passkeys (WebAuthn), TOTP for staff; phone numbers are revealed only to verified accounts and every reveal is logged.</li>
+                <li><b>Secure and findable:</b> a per-request nonce Content Security Policy, server-rendered pages with JSON-LD, and a reproducible pipeline that builds Bangladesh district maps from checksum-pinned geoBoundaries data.</li>
               </ul>
-            </div>
-
-            <div class="tech-row">
-              <span class="tech-tag">Next.js</span><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">REST API</span><span class="tech-tag">Mapbox</span><span class="tech-tag">Cloudinary</span><span class="tech-tag">Google Sign-In</span><span class="tech-tag">PWA</span>
             </div>
 
             <div class="product-actions">
               <a class="btn btn-primary" href="https://ghorly-web.vercel.app/" target="_blank" rel="noopener noreferrer">Visit live site<span aria-hidden="true">↗</span><span class="visually-hidden"> (KhujeNao, opens in a new tab)</span></a>
             </div>
+
+            <details class="work-details">
+              <summary>Architecture &amp; security</summary>
+              <p>A pnpm + Turborepo monorepo with three apps — the Next.js site, the Fastify API and a Vite admin — and shared packages for domain rules, Zod validation, config and design tokens. Business rules live in pure functions, and the API is stateless so it runs serverless.</p>
+              <p>Browsers only talk to their own origin through a proxy, so session cookies stay first-party (HttpOnly, SameSite), with a CSRF plugin, Argon2 passwords and approximate locations instead of exact addresses. Ten architecture decision records document the trade-offs.</p>
+            </details>
           </div>
+
+          <dl class="product-stack" aria-label="KhujeNao tech stack">
+            <div><dt><svg aria-hidden="true"><use href="#i-window"/></svg>Frontend</dt><dd><span class="tech-tag">Next.js 16</span><span class="tech-tag">React 19</span><span class="tech-tag">TypeScript</span><span class="tech-tag">CSS Modules</span><span class="tech-tag">Vite (admin)</span><span class="tech-tag">Mapbox GL</span><span class="tech-tag">PWA</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-server"/></svg>Backend</dt><dd><span class="tech-tag">Fastify 5</span><span class="tech-tag">Node.js</span><span class="tech-tag">Zod</span><span class="tech-tag">jose</span><span class="tech-tag">Argon2</span><span class="tech-tag">WebAuthn passkeys</span><span class="tech-tag">pino</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-db"/></svg>Data</dt><dd><span class="tech-tag">PostgreSQL (Neon)</span><span class="tech-tag">Prisma 7</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-plug"/></svg>Integrations</dt><dd><span class="tech-tag">Google Identity</span><span class="tech-tag">Brevo</span><span class="tech-tag">Cloudinary</span><span class="tech-tag">Vercel Blob</span><span class="tech-tag">sharp</span><span class="tech-tag">geoBoundaries</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-branch"/></svg>Delivery</dt><dd><span class="tech-tag">pnpm + Turborepo</span><span class="tech-tag">Vitest</span><span class="tech-tag">Playwright</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">Docker</span><span class="tech-tag">Vercel</span></dd></div>
+          </dl>
         </article>
       </div>
     </div>
@@ -616,31 +650,31 @@
         <div class="skill-card reveal">
           <h3><span class="icon"><svg><use href="#i-server"/></svg></span>Backend &amp; APIs</h3>
           <div class="skill-tags">
-            <span>C#</span><span>ASP.NET Core</span><span>Node.js</span><span>Express.js</span><span>REST API Design</span><span>OOP &amp; SOLID</span><span>Layered Architecture</span><span>Microservices</span>
+            <span>C#</span><span>ASP.NET Core</span><span>Node.js</span><span>NestJS</span><span>Fastify</span><span>Express.js</span><span>REST API Design</span><span>Zod contracts</span><span>OOP &amp; SOLID</span><span>Layered Architecture</span><span>Microservices</span>
           </div>
         </div>
         <div class="skill-card reveal">
           <h3><span class="icon"><svg><use href="#i-window"/></svg></span>Frontend</h3>
           <div class="skill-tags">
-            <span>React</span><span>Next.js</span><span>JavaScript</span><span>TypeScript</span><span>Redux</span><span>Context API</span><span>Tailwind CSS</span><span>HTML5 &amp; CSS3</span>
+            <span>React</span><span>Next.js</span><span>JavaScript</span><span>TypeScript</span><span>Vite</span><span>TanStack Query</span><span>Redux</span><span>Context API</span><span>PWA &amp; offline</span><span>Tailwind CSS</span><span>HTML5 &amp; CSS3</span>
           </div>
         </div>
         <div class="skill-card reveal">
           <h3><span class="icon"><svg><use href="#i-db"/></svg></span>Data &amp; Reporting</h3>
           <div class="skill-tags">
-            <span>SQL Server</span><span>PostgreSQL</span><span>MongoDB</span><span>Entity Framework</span><span>Stored Procedures</span><span>Query Optimization</span>
+            <span>SQL Server</span><span>PostgreSQL</span><span>MongoDB</span><span>Entity Framework</span><span>Prisma</span><span>Stored Procedures</span><span>Query Optimization</span>
           </div>
         </div>
         <div class="skill-card reveal">
           <h3><span class="icon"><svg><use href="#i-plug"/></svg></span>Integrations</h3>
           <div class="skill-tags">
-            <span>Mobile money (M-Pesa, GeePay)</span><span>WebSocket / Socket.io</span><span>Brevo</span><span>Infobip</span><span>Mapbox</span><span>Jitsi</span>
+            <span>Mobile money (M-Pesa, GeePay)</span><span>WebSocket / Socket.io</span><span>bKash / Nagad</span><span>MikroTik RouterOS</span><span>Brevo</span><span>Infobip</span><span>Google Sign-In &amp; passkeys</span><span>Mapbox / MapLibre</span><span>Cloudinary</span><span>Jitsi</span>
           </div>
         </div>
         <div class="skill-card reveal">
           <h3><span class="icon"><svg><use href="#i-branch"/></svg></span>Architecture &amp; Delivery</h3>
           <div class="skill-tags">
-            <span>Agile / Scrum</span><span>Azure DevOps</span><span>CI/CD Pipelines</span><span>Git</span><span>Postman &amp; Swagger</span><span>Code Review &amp; Mentorship</span>
+            <span>Agile / Scrum</span><span>Azure DevOps</span><span>GitHub Actions</span><span>CI/CD Pipelines</span><span>Docker</span><span>Vercel</span><span>pnpm &amp; Turborepo monorepos</span><span>Vitest &amp; Playwright</span><span>Git</span><span>Postman &amp; Swagger</span><span>Web security (CSP, CSRF, 2FA)</span><span>Code Review &amp; Mentorship</span>
           </div>
         </div>
       </div>
