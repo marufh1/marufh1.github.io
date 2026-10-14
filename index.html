@@ -95,7 +95,7 @@
         "applicationCategory": "LifestyleApplication",
         "operatingSystem": "Web, Android, iOS (PWA)",
         "inLanguage": ["bn", "en"],
-        "description": "Bangla-first home-rental marketplace with fresh, verified listings, starting in Feni, Bangladesh.",
+        "description": "Bangla-first home-rental marketplace that shows when each listing was last confirmed and who posted it, starting in Feni, Bangladesh.",
         "image": "https://marufh1.github.io/assets/img/projects/khujenao-explore-1440.webp",
         "author": { "@id": "https://marufh1.github.io/#person" }
       }
@@ -191,7 +191,7 @@
         <ul class="focus-list">
           <li><span class="focus-dot"></span><span><strong>Fintech platforms</strong> — transaction handling, mobile-money integrations, and reporting at Grapes Technology.</span></li>
           <li><span class="focus-dot"></span><span><strong>Full-stack products</strong> — car rental, food ordering, and real-time features in React, Node.js, and MongoDB at Siara Solutions.</span></li>
-          <li><span class="focus-dot"></span><span><strong>Independent products</strong> — <a href="#products">Jogan</a>, an ISP billing SaaS, and <a href="#products">KhujeNao</a>, a rental marketplace, built and shipped end to end.</span></li>
+          <li><span class="focus-dot"></span><span><strong>Independent products</strong> — <a href="#products">Jogan</a>, a billing app for small ISPs, and <a href="#products">KhujeNao</a>, a way to find rental homes in Feni.</span></li>
           <li><span class="focus-dot"></span><span><strong>Query &amp; index optimization</strong> — cutting execution time on critical SQL Server reports.</span></li>
         </ul>
 
@@ -466,8 +466,8 @@
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Independent Products</span>
-        <h2>Two products, built end to end</h2>
-        <p>Outside my day job I design, build and ship complete products for real problems in Bangladesh — typed monorepos with PostgreSQL data models, tested APIs, installable mobile-first apps and CI.</p>
+        <h2>Things I build on my own time</h2>
+        <p>Two products I started after seeing the same problems around me in Bangladesh — small internet providers running on paper ledgers, and families in Feni calling number after number to find a flat. I took both from an idea to a working, live app.</p>
       </div>
 
       <div class="product-list">
@@ -492,8 +492,8 @@
                    srcset="assets/img/projects/jogan-branding-800.webp 800w, assets/img/projects/jogan-branding-1440.webp 1440w"
                    sizes="(max-width: 900px) 100vw, 560px"
                    width="1440" height="854" loading="lazy" decoding="async"
-                   alt="Jogan branding settings: six Bangladesh-inspired theme presets, a custom brand colour with a WCAG AA readability check, and a live phone preview." />
-              <figcaption>Per-ISP branding — six presets or the ISP's own logo colour, run through an OKLCH theme engine that keeps text readable (WCAG AA) and previews it on a phone first.</figcaption>
+                   alt="Jogan branding settings: six Bangladesh-inspired theme presets, a custom brand colour with a readability check, and a live phone preview." />
+              <figcaption>Each ISP can make Jogan its own — colour presets named after things like Shapla and Jute, or its own logo colour, which the app keeps readable.</figcaption>
             </figure>
           </div>
 
@@ -501,47 +501,47 @@
             <div class="product-top">
               <span class="product-logo" aria-hidden="true">J</span>
               <h3 id="product-jogan">Jogan</h3>
-              <span class="work-tag">SaaS · ISP billing</span>
-              <span class="product-status"><span class="live-dot" aria-hidden="true"></span>Live</span>
+              <span class="work-tag">ISP billing</span>
+              <span class="product-status"><span class="live-dot" aria-hidden="true"></span>Live · looking for pilot ISPs</span>
             </div>
-            <p class="product-pitch">Billing, collections and field operations for internet service providers in Bangladesh — a multi-tenant SaaS where every taka is traceable, in Bangla and English.</p>
+            <p class="product-pitch">Most small internet providers in Bangladesh still run on spreadsheets, paper ledgers and WhatsApp. Bills get missed or sent twice, collectors' cash is hard to match, and owners can't see what's actually owed. Jogan puts subscribers, bills, payments and complaints in one simple app, in Bangla and English.</p>
 
             <div class="work-field">
               <strong>What it does</strong>
               <ul class="product-points">
-                <li>Subscribers, packages and billing runs with proration, discounts and one-off charges; cash, bKash and Nagad payments with receipts, credit and reversals.</li>
-                <li>An offline-capable collector app — assigned routes, a three-tap collect flow and cash hand-overs to the office.</li>
-                <li>Support tickets, field jobs, stock, expenses and profit, coverage maps, SMS reminders and a public bill page for customers.</li>
+                <li>Monthly billing for internet and cable TV — by calendar month or each customer's own date — with cash, bKash and Nagad payments.</li>
+                <li>A phone app for field collectors that keeps working when there's no signal.</li>
+                <li>Complaints, field jobs, stock, a coverage map, and a bill link customers can open without installing anything.</li>
               </ul>
             </div>
 
             <div class="work-field">
-              <strong>Engineering highlights</strong>
+              <strong>Decisions I made</strong>
               <ul class="product-points">
-                <li><b>Money you can audit:</b> integer poisha, idempotency keys on every payment, fixed lock ordering and reversals instead of deletes — proven by concurrent-payment e2e tests and a ledger integrity checker.</li>
-                <li><b>Tenant isolation in the database:</b> composite foreign keys reject cross-tenant links, and a default-deny guard over ~58 permissions and five roles is checked route by route in tests.</li>
-                <li><b>Offline that's safe:</b> collections are encrypted on the phone (WebCrypto AES-GCM in IndexedDB) and replayed with their idempotency keys when the signal returns.</li>
-                <li><b>Built, not bought:</b> an own MikroTik RouterOS protocol client, a wallet-SMS parser that matches bKash/Nagad payments to customers, and a Postgres job outbox instead of Redis.</li>
+                <li>Money is never deleted, only reversed, and a payment can only be recorded once — even when a collector's phone retries it after coming back online.</li>
+                <li>One ISP can never see another's data. That rule lives in the database itself, not only in the code.</li>
+                <li>It had to be cheap to run: no Redis, no paid email, nothing to install. PostgreSQL does the queueing, and each ISP plugs in its own SMS provider.</li>
+                <li>I wrote a small MikroTik client so owners can compare who's connected on the router with who has actually paid.</li>
               </ul>
             </div>
 
             <div class="product-actions">
-              <a class="btn btn-primary" href="https://jogan-web.vercel.app/pricing" target="_blank" rel="noopener noreferrer">Visit live site<span aria-hidden="true">↗</span><span class="visually-hidden"> (Jogan, opens in a new tab)</span></a>
+              <a class="btn btn-primary" href="https://jogan-web.vercel.app/pricing" target="_blank" rel="noopener noreferrer">See it live<span aria-hidden="true">↗</span><span class="visually-hidden"> (Jogan, opens in a new tab)</span></a>
             </div>
 
             <details class="work-details">
-              <summary>Architecture &amp; security</summary>
-              <p>A pnpm monorepo: the React PWA, a NestJS modular-monolith API (31 modules) and a shared TypeScript package for billing maths, permissions, dates and the theme engine, used by both sides. 55 architecture decision records cover choices like Postgres-only queues and server-side sessions.</p>
-              <p>Argon2 passwords, SHA-256-hashed session tokens in <code>__Host-</code> cookies, HMAC double-submit CSRF, TOTP with recovery codes for platform staff, AES-256-GCM encrypted integration secrets, and an audit log written in the same transaction as each change. Covered by 680+ automated unit, API and end-to-end tests.</p>
+              <summary>How it's built</summary>
+              <p>A React app that installs on a phone like a native one, talking to a NestJS API on PostgreSQL. The billing maths and the permission rules live in one shared TypeScript package, so the app and the server always work from the same rules.</p>
+              <p>The part I tested hardest is money: end-to-end tests fire the same payment twice at the same moment and check that only one is ever recorded.</p>
             </details>
           </div>
 
           <dl class="product-stack" aria-label="Jogan tech stack">
-            <div><dt><svg aria-hidden="true"><use href="#i-window"/></svg>Frontend</dt><dd><span class="tech-tag">React 19</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Vite</span><span class="tech-tag">TanStack Query</span><span class="tech-tag">PWA · Workbox</span><span class="tech-tag">IndexedDB</span><span class="tech-tag">MapLibre GL</span></dd></div>
-            <div><dt><svg aria-hidden="true"><use href="#i-server"/></svg>Backend</dt><dd><span class="tech-tag">NestJS 11</span><span class="tech-tag">Node.js</span><span class="tech-tag">Zod</span><span class="tech-tag">Argon2</span><span class="tech-tag">TOTP 2FA</span><span class="tech-tag">Session auth + CSRF</span></dd></div>
-            <div><dt><svg aria-hidden="true"><use href="#i-db"/></svg>Data</dt><dd><span class="tech-tag">PostgreSQL 16</span><span class="tech-tag">Prisma 7</span><span class="tech-tag">SKIP LOCKED queues</span></dd></div>
-            <div><dt><svg aria-hidden="true"><use href="#i-plug"/></svg>Integrations</dt><dd><span class="tech-tag">MikroTik RouterOS API</span><span class="tech-tag">BD SMS gateways</span><span class="tech-tag">bKash / Nagad matching</span><span class="tech-tag">OpenFreeMap</span></dd></div>
-            <div><dt><svg aria-hidden="true"><use href="#i-branch"/></svg>Delivery</dt><dd><span class="tech-tag">pnpm monorepo</span><span class="tech-tag">Vitest</span><span class="tech-tag">Supertest</span><span class="tech-tag">Playwright</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">Docker</span><span class="tech-tag">Vercel</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-window"/></svg>Frontend</dt><dd><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Vite</span><span class="tech-tag">TanStack Query</span><span class="tech-tag">PWA · offline</span><span class="tech-tag">MapLibre</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-server"/></svg>Backend</dt><dd><span class="tech-tag">Node.js</span><span class="tech-tag">NestJS</span><span class="tech-tag">Zod</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-db"/></svg>Data</dt><dd><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Prisma</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-plug"/></svg>Integrations</dt><dd><span class="tech-tag">MikroTik</span><span class="tech-tag">SMS gateways</span><span class="tech-tag">bKash / Nagad</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-branch"/></svg>Delivery</dt><dd><span class="tech-tag">GitHub Actions</span><span class="tech-tag">Docker</span><span class="tech-tag">Vitest</span><span class="tech-tag">Playwright</span><span class="tech-tag">Vercel</span></dd></div>
           </dl>
         </article>
 
@@ -567,7 +567,7 @@
                    sizes="(max-width: 900px) 100vw, 560px"
                    width="1440" height="900" loading="lazy" decoding="async"
                    alt="KhujeNao home page on desktop: Bangla headline asking if you are looking for a home, a search panel with quick filters, and a panel explaining fresh listings, clear posters and protected phone numbers." />
-              <figcaption>Bangla by default — about 2,300 lines of hand-written Bangla/English copy that keeps the English words people actually use (“Rent”, “confirm”, “Bedroom”).</figcaption>
+              <figcaption>The home page as people in Feni see it — Bangla first, with the English words they actually use, like “Rent” and “Bedroom”.</figcaption>
             </figure>
           </div>
 
@@ -575,47 +575,46 @@
             <div class="product-top">
               <span class="product-logo" aria-hidden="true">K</span>
               <h3 id="product-khujenao">KhujeNao <span class="product-alias">(Ghorly)</span></h3>
-              <span class="work-tag">Marketplace · Rentals</span>
-              <span class="product-status"><span class="live-dot" aria-hidden="true"></span>Live</span>
+              <span class="work-tag">Home rentals</span>
+              <span class="product-status"><span class="live-dot" aria-hidden="true"></span>Live · starting in Feni</span>
             </div>
-            <p class="product-pitch">A Bangla-first home-rental marketplace starting in Feni — every listing shows when it was last confirmed and who posted it, so renters waste fewer calls.</p>
+            <p class="product-pitch">In Feni, finding a flat still means walking the streets for hand-painted TO-LET signs, scrolling old Facebook posts and calling number after number — often to hear it's already rented, or that you're talking to a broker. KhujeNao shows the rent, who posted it and when it was last confirmed, before you pick up the phone.</p>
 
             <div class="work-field">
               <strong>What it does</strong>
               <ul class="product-points">
-                <li>Search by area, tenant type, bedrooms, rent and move-in date, in list or map view, with saved searches, compare and alerts.</li>
-                <li>Free listings for owners with Bangla share cards and a printable QR “To-Let” sheet; renters post what they need and get matched to new homes.</li>
-                <li>Electrician and plumber booking, a local directory, emergency numbers and a meter-code tool — plus an admin app for moderation and service dispatch.</li>
+                <li>Search homes by area, rent, bedrooms and family or bachelor — in a list or on a map.</li>
+                <li>Owners post for free and get a share card and a printable QR “To-Let” sign for the gate.</li>
+                <li>Renters can describe what they need and get told when a match appears. There's also electrician and plumber booking.</li>
               </ul>
             </div>
 
             <div class="work-field">
-              <strong>Engineering highlights</strong>
+              <strong>Decisions I made</strong>
               <ul class="product-points">
-                <li><b>Listings that stay fresh:</b> owners are reminded at 7 and 14 days and unconfirmed listings expire at 21, driven by an hourly scheduled sweep with de-duplicated reminders.</li>
-                <li><b>Contract-first API:</b> Fastify under <code>/v1</code> with Zod contracts shared by the site, admin and API, a stable error envelope with request IDs, and Postgres-backed rate limiting.</li>
-                <li><b>Modern sign-in, private contacts:</b> password, email code, Google One Tap or passkeys (WebAuthn), TOTP for staff; phone numbers are revealed only to verified accounts and every reveal is logged.</li>
-                <li><b>Secure and findable:</b> a per-request nonce Content Security Policy, server-rendered pages with JSON-LD, and a reproducible pipeline that builds Bangladesh district maps from checksum-pinned geoBoundaries data.</li>
+                <li>Listings go stale fast, so they expire on their own: a reminder after one week, another after two, and the listing comes down after three unless the owner confirms it.</li>
+                <li>Phone numbers only show to verified users and the exact address stays hidden, so owners don't get spam calls.</li>
+                <li>It had to work on a cheap phone on a slow connection, so pages are rendered on the server and the app installs straight from the browser.</li>
               </ul>
             </div>
 
             <div class="product-actions">
-              <a class="btn btn-primary" href="https://ghorly-web.vercel.app/" target="_blank" rel="noopener noreferrer">Visit live site<span aria-hidden="true">↗</span><span class="visually-hidden"> (KhujeNao, opens in a new tab)</span></a>
+              <a class="btn btn-primary" href="https://ghorly-web.vercel.app/" target="_blank" rel="noopener noreferrer">See it live<span aria-hidden="true">↗</span><span class="visually-hidden"> (KhujeNao, opens in a new tab)</span></a>
             </div>
 
             <details class="work-details">
-              <summary>Architecture &amp; security</summary>
-              <p>A pnpm + Turborepo monorepo with three apps — the Next.js site, the Fastify API and a Vite admin — and shared packages for domain rules, Zod validation, config and design tokens. Business rules live in pure functions, and the API is stateless so it runs serverless.</p>
-              <p>Browsers only talk to their own origin through a proxy, so session cookies stay first-party (HttpOnly, SameSite), with a CSRF plugin, Argon2 passwords and approximate locations instead of exact addresses. Ten architecture decision records document the trade-offs, and 330+ automated unit, integration and end-to-end tests run in CI.</p>
+              <summary>How it's built</summary>
+              <p>Three apps in one repository — the Next.js site renters use, a Fastify API, and a small admin app for checking listings and dispatching service jobs — all sharing the same validation rules.</p>
+              <p>Sign-in works with a password, an email code, Google, or a passkey, so people can use whichever they already have. The Bangladesh map is drawn from open boundary data, so the app can grow beyond Feni one district at a time.</p>
             </details>
           </div>
 
           <dl class="product-stack" aria-label="KhujeNao tech stack">
-            <div><dt><svg aria-hidden="true"><use href="#i-window"/></svg>Frontend</dt><dd><span class="tech-tag">Next.js 16</span><span class="tech-tag">React 19</span><span class="tech-tag">TypeScript</span><span class="tech-tag">CSS Modules</span><span class="tech-tag">Vite (admin)</span><span class="tech-tag">Mapbox GL</span><span class="tech-tag">PWA</span></dd></div>
-            <div><dt><svg aria-hidden="true"><use href="#i-server"/></svg>Backend</dt><dd><span class="tech-tag">Fastify 5</span><span class="tech-tag">Node.js</span><span class="tech-tag">Zod</span><span class="tech-tag">jose</span><span class="tech-tag">Argon2</span><span class="tech-tag">WebAuthn passkeys</span><span class="tech-tag">pino</span></dd></div>
-            <div><dt><svg aria-hidden="true"><use href="#i-db"/></svg>Data</dt><dd><span class="tech-tag">PostgreSQL (Neon)</span><span class="tech-tag">Prisma 7</span></dd></div>
-            <div><dt><svg aria-hidden="true"><use href="#i-plug"/></svg>Integrations</dt><dd><span class="tech-tag">Google Identity</span><span class="tech-tag">Brevo</span><span class="tech-tag">Cloudinary</span><span class="tech-tag">Vercel Blob</span><span class="tech-tag">sharp</span><span class="tech-tag">geoBoundaries</span></dd></div>
-            <div><dt><svg aria-hidden="true"><use href="#i-branch"/></svg>Delivery</dt><dd><span class="tech-tag">pnpm + Turborepo</span><span class="tech-tag">Vitest</span><span class="tech-tag">Playwright</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">Docker</span><span class="tech-tag">Vercel</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-window"/></svg>Frontend</dt><dd><span class="tech-tag">Next.js</span><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Mapbox</span><span class="tech-tag">PWA</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-server"/></svg>Backend</dt><dd><span class="tech-tag">Node.js</span><span class="tech-tag">Fastify</span><span class="tech-tag">Zod</span><span class="tech-tag">Passkeys</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-db"/></svg>Data</dt><dd><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Prisma</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-plug"/></svg>Integrations</dt><dd><span class="tech-tag">Google Sign-In</span><span class="tech-tag">Brevo</span><span class="tech-tag">Cloudinary</span></dd></div>
+            <div><dt><svg aria-hidden="true"><use href="#i-branch"/></svg>Delivery</dt><dd><span class="tech-tag">Turborepo</span><span class="tech-tag">GitHub Actions</span><span class="tech-tag">Vitest</span><span class="tech-tag">Playwright</span><span class="tech-tag">Vercel</span></dd></div>
           </dl>
         </article>
       </div>
